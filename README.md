@@ -4,7 +4,9 @@ A simple writing application to explore some Google+ OAuth2.0 features in the fo
 
 ###This project takes advantage of
 >[initializr](http://www.initializr.com/) -- Responsive
+>___
 >[twitter bootstrap](http://twitter.github.com/bootstrap/)
+>___
 >and others of course!
 
 ####Feel free to read through and use any snippets you find useful!
