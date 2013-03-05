@@ -1,6 +1,6 @@
 #Bookstrap
 
-A simple writing application to explore some Google+ OAuth2.0 features in the form of a nice writing space application.
+A simple writing application to explore some Google+ OpenID features in the form of a simple writing application.
 
 ###This project takes advantage of
 [Initializr](http://www.initializr.com/)'s Responsive template
