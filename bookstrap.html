@@ -9,7 +9,6 @@
 			<title>Bookstrap</title>
 			<meta name="description" content="A simple writing application to explore some html5 features alongside a nice writing space.">
 			<meta name="viewport" content="width=device-width">
-
 			<link rel="stylesheet" href="css/bookstrap.min.css">
 			<style>
 				body {
@@ -149,7 +148,7 @@
 							// Hide the sign-in button now that the user is authorized, for example:
 							document.getElementById('signinButton').setAttribute('style', 'display: none');
 							getPlusName();
-							getPlusEmail();
+							getOAuthEmail();
 							// console.log( authResult );
 						} else if ( authResult[ 'error' ]) {
 							// There was an error.
@@ -166,7 +165,7 @@
 						request.execute( getNameCallback );
 					});
 				}
-				function getPlusEmail() {
+				function getOAuthEmail() {
 					gapi.client.load( 'oauth2', 'v2', function() {
 						var request = gapi.client.oauth2.userinfo.get();
 						request.execute( getEmailCallback );
