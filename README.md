@@ -3,9 +3,9 @@
 A simple writing application to explore some Google+ OAuth2.0 features in the form of a nice writing space application.
 
 ###This project takes advantage of
-[initializr](http://www.initializr.com/) -- Responsive
+[Initializr](http://www.initializr.com/)'s Responsive template
 
-[twitter bootstrap](http://twitter.github.com/bootstrap/)
+[Twitter Bootstrap](http://twitter.github.com/bootstrap/)
 
 and others of course!
 
