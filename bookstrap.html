@@ -1,268 +1,252 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Bookstrap</title>
-        <meta name="description" content="A simple writing application to explore some html5 features alongside a nice writing space.">
-        <meta name="viewport" content="width=device-width">
+	<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+	<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+	<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+	<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+		<head>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+			<title>Bookstrap</title>
+			<meta name="description" content="A simple writing application to explore some html5 features alongside a nice writing space.">
+			<meta name="viewport" content="width=device-width">
 
-        <link rel="stylesheet" href="css/bookstrap.min.css">
-        <style>
-            body {
-                padding-top: 60px;
-                padding-bottom: 40px;
-            }
-            #signoutButton  {
-              display: none;
-            }
-            #signoutButton span {
-              color: #999;
-            }
-            #signoutButton:hover span {
-              color: #666;
-            }
-            #editableTitle {
-                color: #999;
-            }
-            #editableTitle:hover {
-                color: #333;
-            }
-            #editableTitle:focus, #editiableBody:focus {
-                color: #333;
-                outline: none;
-            }
-        </style>
-        <link rel="stylesheet" href="css/bookstrap-responsive.min.css">
-        <!--
-					<link rel="stylesheet" href="css/main.css">
-				-->
-
-        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
-
-        <!-- This code is taken from http://twitter.github.com/bookstrap/examples/hero.html -->
-
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-                    <a class="brand" href="#">Bookstrap</a>
-                    <div class="nav-collapse collapse">
-                        <ul class="nav">
-                            <li class="active"><a href="#">Write</a></li>
-                            <li><a href="#aboutModal" role="button" data-toggle="modal">About</a></li>
-                        </ul>
-                        <ul class="nav pull-right">
-                          <li class="dropdown">
-                            <a id="username" class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-left:2px;"></a>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="usernameDrop">
-                              <li class="disabled" role="presentation">
-                                <a id="userEmail" href="#"></a>
-                              </li>
-                              <li role="presentation">
-                                <a href="https://plus.google.com/u/0/me?tab=XX" target="_blank"> Google profile </a>
-                              </li>
-                              <li role="presentation" class="divider"></li>
-                              <li role="presentation">
-                                <a id="signoutButton"> Sign out <i class="icon-remove"></i></button>
-                              </li>
-                            </ul>
-                          </li>
-                        </ul>
-                        <ul class="nav pull-right">
-                        	<li>
-														<a href="#">
-												    <span id="signinButton">
-                                <span
-                                    class="g-signin"
-                                    data-callback="signinCallback"
-                                    data-clientid="370629300544.apps.googleusercontent.com"
-                                    data-cookiepolicy="single_host_origin"
-																		data-height="short"
-                                    data-requestvisibleactions="http://schemas.google.com/AddActivity"
-                                    data-scope="https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email">
-                                </span>
-                            </span>
-														</a>
-													</li>
-                        </ul>
-                    </div><!--/.nav-collapse -->
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <!-- Example row of columns -->
-            <div class="row">
-                <div class="span12">
-                    <span class="pull-right">
-                        <button id="newDocument" class="btn btn-inverse btn-mini" type="button"><i class="icon-file icon-white"></i> new </button>
-                        <button id="emailDocument" class="btn btn-inverse btn-mini" type="button"><i class="icon-envelope icon-white"></i> email </button>
-                        <button id="printDocument" class="btn btn-inverse btn-mini" type="button"><i class="icon-print icon-white"></i> print </button>
-                    </span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="span10 offset1">
-                    <h3 id="editableTitle" contenteditable="true">Lorem ipsum</h3>
-                    <p id="editiableBody" contenteditable="true">Lorem ipsum dolor...</p>
-                </div>
-            </div>
-            <hr>
-
-            <footer>
-                <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>
-            </footer>
-
-            <div id="aboutModal" class="modal hide fade" data-backdrop="false" tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel" aria-hidden="true">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-                    <h3 id="aboutModalLabel">So what's this all about?</h3>
-                </div>
-                <div class="modal-body">
-                    <p>Bookstrap is a very simple writing application I made as a front for experimenting with single click signin features. I used <a href="http://initializr.com/">Initializr</a>'s Responsive template to get up and running quickly. This project also up on <a href="http://github.com/jlaswell/bookstrap/">Github</a> for anyone that wants to read through the source and use any snippets they find worthy.</p>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn" data-dismiss="modal" aria-hidden="true">Alright</button>
-                </div>
-            </div>
-
-        </div> <!-- /container -->
-
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-
-        <script src="js/vendor/bookstrap.min.js"></script>
-
-        <script src="js/main.js"></script>
-
-        <script>
-            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g,s)}(document,'script'));
-        </script>
-
-        <script type="text/javascript">
-          function signinCallback(authResult) {
-            if( authResult ) {
-              if (authResult['access_token']) {
-                // Successfully authorized
-                // Store the returned token.
-                gapi.auth.setToken( authResult );
-                // Hide the sign-in button now that the user is authorized, for example:
-                document.getElementById('signinButton').setAttribute('style', 'display: none');
-                getPlusName();
-                getPlusEmail();
-                // console.log( authResult );
-              } else if (authResult['error']) {
-                // There was an error.
-                // Possible error codes:
-                //   "access_denied" - User denied access to your app
-                //   "immediate_failed" - Could not automatially log in the user
-                // console.log('There was an error: ' + authResult['error']);
-              }
-            }
-          }
-					function getPlusName() {
-            gapi.client.load( 'plus', 'v1', function() {
-              var request = gapi.client.plus.people.get({'userId': 'me'});
-              request.execute( getNameCallback );
-            });
-          }
-          function getPlusEmail() {
-            gapi.client.load( 'oauth2', 'v2', function() {
-              var request = gapi.client.oauth2.userinfo.get();
-              request.execute( getEmailCallback );
-            });
-          }
-          function getEmail() {
-            return $('#userEmail').text();
-          }
-          function getEmailCallback( response ) {
-            // console.log( response );
-            var element = $('#userEmail');
-            var email = '';
-            if( response[ 'email' ]) {
-              email = response.email;
-            }
-            element.text( email );
-          }
-          function getName() {
-            gapi.client.load( 'oauth2', 'v2', function() {
-              var request = gapi.client.oauth2.userinfo.get();
-              request.execute( getNameCallback );
-						});
-					}
-					function getNameCallback( response ) {
-							var element = document.getElementById( 'username' );
-							var name = '';
-							// console.log( response );
-							if( response[ 'displayName' ]) {
-								name = response[ 'displayName' ];
-							}
-							element.innerHTML = name;
-              document.getElementById('username').setAttribute('style', 'display: inherit');
-              document.getElementById('signoutButton').setAttribute('style', 'display: inherit');
+			<link rel="stylesheet" href="css/bookstrap.min.css">
+			<style>
+				body {
+					padding-top: 60px;
+					padding-bottom: 40px;
+				}
+				#signoutButton  {
+					display: none;
+				}
+				#signoutButton span {
+					color: #999;
+				}
+				#signoutButton:hover span {
+					color: #666;
+				}
+				#editableTitle {
+					color: #999;
+				}
+				#editableTitle:hover {
+					color: #333;
+				}
+				#editableTitle:focus, #editiableBody:focus {
+					color: #333;
+					outline: none;
+				}
+			</style>
+			<link rel="stylesheet" href="css/bookstrap-responsive.min.css">
+			<script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+		</head>
+		<body>
+			<!--[if lt IE 7]>
+				<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+			<![endif]-->
+			<div class="navbar navbar-inverse navbar-fixed-top">
+				<div class="navbar-inner">
+					<div class="container">
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</a>
+						<a class="brand" href="#">Bookstrap</a>
+						<div class="nav-collapse collapse">
+							<ul class="nav">
+								<li class="active"><a href="#">Write</a></li>
+								<li><a href="#aboutModal" role="button" data-toggle="modal">About</a></li>
+							</ul>
+							<ul class="nav pull-right">
+								<li class="dropdown">
+									<a id="username" class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-left:2px;"></a>
+									<ul class="dropdown-menu" role="menu" aria-labelledby="usernameDrop">
+										<li class="disabled" role="presentation">
+											<a id="userEmail" href="#"></a>
+										</li>
+										<li role="presentation">
+											<a href="https://plus.google.com/u/0/me?tab=XX" target="_blank"> Google profile </a>
+										</li>
+										<li role="presentation" class="divider"></li>
+										<li role="presentation">
+											<a id="signoutButton"> Sign out <i class="icon-remove"></i></button>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<ul class="nav pull-right">
+								<li>
+									<a href="#">
+										<span id="signinButton">
+											<span
+												class="g-signin"
+												data-callback="signinCallback"
+												data-clientid="370629300544.apps.googleusercontent.com"
+												data-cookiepolicy="single_host_origin"
+												data-height="short"
+												data-requestvisibleactions="http://schemas.google.com/AddActivity"
+												data-scope="https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email">
+											</span>
+										</span>
+									</a>
+								</li>
+							</ul>
+						</div><!--/.nav-collapse -->
+					</div>
+				</div>
+			</div> <!--/.navbar -->
+			<div class="container">
+				<div class="row">
+					<div class="span12">
+						<span class="pull-right">
+							<button id="newDocument" class="btn btn-inverse btn-mini" type="button"><i class="icon-file icon-white"></i> new </button>
+							<button id="emailDocument" class="btn btn-inverse btn-mini" type="button"><i class="icon-envelope icon-white"></i> email </button>
+							<button id="printDocument" class="btn btn-inverse btn-mini" type="button"><i class="icon-print icon-white"></i> print </button>
+						</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="span10 offset1">
+						<h3 id="editableTitle" contenteditable="true">Lorem ipsum</h3>
+						<p id="editiableBody" contenteditable="true">Lorem ipsum dolor...</p>
+					</div>
+				</div>
+				<hr>
+				<footer>
+					<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>
+				</footer>
+				<!-- Attach the modal to the bottom. -->
+				<div id="aboutModal" class="modal hide fade" data-backdrop="false" tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel" aria-hidden="true">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+						<h3 id="aboutModalLabel">So what's this all about?</h3>
+					</div>
+					<div class="modal-body">
+						<p>Bookstrap is a very simple writing application I made as a front for experimenting with single click sign in features. I used <a href="http://initializr.com/">Initializr</a>'s Responsive template to get up and running quickly. This project also up on <a href="http://github.com/jlaswell/bookstrap/">Github</a> for anyone that wants to read through the source and use any snippets they find worthy.</p>
+					</div>
+					<div class="modal-footer">
+						<button class="btn" data-dismiss="modal" aria-hidden="true">Alright</button>
+					</div>
+				</div>
+			</div> <!-- /container -->
+			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+			<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+			<script src="js/vendor/bookstrap.min.js"></script>
+			<script src="js/main.js"></script>
+			<script>
+				var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+				(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+				g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+				s.parentNode.insertBefore(g,s)}(document,'script'));
+			</script>
+			<script type="text/javascript">
+				function signinCallback(authResult) {
+					if( authResult ) {
+						if (authResult['access_token']) {
+							// Successfully authorized
+							// Store the returned token.
+							gapi.auth.setToken( authResult );
+							// Hide the sign-in button now that the user is authorized, for example:
+							document.getElementById('signinButton').setAttribute('style', 'display: none');
+							getPlusName();
+							getPlusEmail();
+							// console.log( authResult );
+						} else if ( authResult[ 'error' ]) {
+							// There was an error.
+							// Possible error codes:
+							//   "access_denied" - User denied access to your app
+							//   "immediate_failed" - Could not automatially log in the user
+							console.log('There was an error: ' + authResult['error']);
 						}
-          function revokeAccess( access_token ) {
-            var revoke_url = 'https://accounts.google.com/o/oauth2/revoke?token=' + access_token;
-            $.ajax({
-              type: 'GET',
-              url: revoke_url,
-              async: false,
-              contentType: "application/json",
-              dataType: 'jsonp',
-              success: function( nullResponse ) {
-                // Do something now that user is disconnected
-                // The response is always undefined.
-                document.getElementById('signinButton').setAttribute('style', 'display: inherit');
-                document.getElementById('username').setAttribute('style', 'display: none');
-                document.getElementById('signoutButton').setAttribute('style', 'display: none');
-              },
-              error: function( error ) {
-                // Handle the error
-                // console.log( error );
-                // You could point users to manually disconnect if unsuccessful
-                // https://plus.google.com/apps
-              }
-            });
-          }
-          function clearDocument() {
-            document.getElementById( 'editableTitle' ).innerHTML = 'Lorem ipsum';
-            document.getElementById( 'editiableBody' ).innerHTML = '*ah* There ya go.'
-          }
-          function sendMail() {
-            var link = "mailto:"
-             + "?cc=" + getEmail()
-             + "&subject=" + escape($('#editableTitle').text())
-             + "&body=" + escape($('#editiableBody').text());
-            window.open(link);
-          }
-          function printDocument() {
-            window.print();
-          }
-            (function() {
-                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-                po.src = 'https://apis.google.com/js/client:plusone.js';
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-                $('#signoutButton').click( revokeAccess );
-                $('#newDocument').click( clearDocument );
-                $('#emailDocument').click( sendMail );
-                $('#printDocument').click( printDocument )
-            })();
-        </script>
-    </body>
+					}
+				}
+				function getPlusName() {
+					gapi.client.load( 'plus', 'v1', function() {
+						var request = gapi.client.plus.people.get({'userId': 'me'});
+						request.execute( getNameCallback );
+					});
+				}
+				function getPlusEmail() {
+					gapi.client.load( 'oauth2', 'v2', function() {
+						var request = gapi.client.oauth2.userinfo.get();
+						request.execute( getEmailCallback );
+					});
+				}
+				function getEmail() {
+					return $('#userEmail').text();
+				}
+				function getEmailCallback( response ) {
+					// console.log( response );
+					var element = $('#userEmail');
+					var email = '';
+					if( response[ 'email' ]) {
+						email = response.email;
+					}
+					element.text( email );
+				}
+				function getName() {
+					gapi.client.load( 'oauth2', 'v2', function() {
+						var request = gapi.client.oauth2.userinfo.get();
+						request.execute( getNameCallback );
+					});
+				}
+				function getNameCallback( response ) {
+					var element = document.getElementById( 'username' );
+					var name = '';
+					// console.log( response );
+					if( response[ 'displayName' ]) {
+						name = response[ 'displayName' ];
+					}
+					element.innerHTML = name;
+					document.getElementById('username').setAttribute('style', 'display: inherit');
+					document.getElementById('signoutButton').setAttribute('style', 'display: inherit');
+				}
+				function revokeAccess( access_token ) {
+					var revoke_url = 'https://accounts.google.com/o/oauth2/revoke?token=' + access_token;
+					$.ajax({
+						type: 'GET',
+						url: revoke_url,
+						async: false,
+						contentType: "application/json",
+						dataType: 'jsonp',
+						success: function( nullResponse ) {
+							// Do something now that user is disconnected
+							// The response is always undefined.
+							document.getElementById('signinButton').setAttribute('style', 'display: inherit');
+							document.getElementById('username').setAttribute('style', 'display: none');
+							document.getElementById('signoutButton').setAttribute('style', 'display: none');
+						},
+						error: function( error ) {
+							// Handle the error
+							console.log( error );
+							// You could point users to manually disconnect if unsuccessful
+							window.open( 'https://plus.google.com/apps' );
+						}
+					});
+				}
+				function clearDocument() {
+					document.getElementById( 'editableTitle' ).innerHTML = 'Lorem ipsum';
+					document.getElementById( 'editiableBody' ).innerHTML = '*ah* There ya go.'
+				}
+				function sendMail() {
+					var link = "mailto:"
+						+ "?cc=" + getEmail()
+						+ "&subject=" + escape($('#editableTitle').text())
+						+ "&body=" + escape($('#editiableBody').text());
+						window.open(link);
+				}
+				function printDocument() {
+					window.print();
+				}
+				(function() {
+					var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+					po.src = 'https://apis.google.com/js/client:plusone.js';
+					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+					$('#signoutButton').click( revokeAccess );
+					$('#newDocument').click( clearDocument );
+					$('#emailDocument').click( sendMail );
+					$('#printDocument').click( printDocument )
+				})();
+			</script>
+		</body>
 </html>
