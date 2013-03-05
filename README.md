@@ -7,6 +7,6 @@ A simple writing application to explore some Google+ OpenID features in the form
 
 [Twitter Bootstrap](http://twitter.github.com/bootstrap/)
 
-and others of course!
+[Google+ API](http://developers.google.com/+/api/)
 
 ####Feel free to read through and use any snippets you find useful!
