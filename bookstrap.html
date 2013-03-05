@@ -16,9 +16,20 @@
                 padding-top: 60px;
                 padding-bottom: 40px;
             }
+            #signoutButton  {
+              display: none;
+            }
+            #signoutButton span {
+              color: #999;
+            }
+            #signoutButton:hover span {
+              color: #666;
+            }
         </style>
         <link rel="stylesheet" href="css/bookstrap-responsive.min.css">
-        <link rel="stylesheet" href="css/main.css">
+        <!--
+					<link rel="stylesheet" href="css/main.css">
+				-->
 
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
@@ -43,18 +54,37 @@
                             <li class="active"><a href="#">Write</a></li>
                             <li><a href="#about">About</a></li>
                         </ul>
-                        <form class="navbar-form pull-right">
-                            <span id="signinButton">
+                        <ul class="nav pull-right">
+                          <li class="dropdown">
+                            <a id="username" class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-left:2px;">Sign out</a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="usernameDrop">
+                              <li role="presentation">
+                                <a href="https://plus.google.com/u/0/me?tab=XX" target="_blank"> Google profile </a>
+                              </li>
+                              <li role="presentation" class="divider"></li>
+                              <li role="presentation">
+                                <a id="signoutButton"> Sign out <i class="icon-remove"></i></button>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                        <ul class="nav pull-right">
+                        	<li>
+														<a href="#">
+												    <span id="signinButton">
                                 <span
                                     class="g-signin"
                                     data-callback="signinCallback"
                                     data-clientid="370629300544.apps.googleusercontent.com"
                                     data-cookiepolicy="single_host_origin"
+																		data-height="short"
                                     data-requestvisibleactions="http://schemas.google.com/AddActivity"
                                     data-scope="https://www.googleapis.com/auth/plus.login">
                                 </span>
                             </span>
-                        </form>
+														</a>
+													</li>
+                        </ul>
                     </div><!--/.nav-collapse -->
                 </div>
             </div>
@@ -121,27 +151,77 @@
         </script>
 
         <script type="text/javascript">
+          function signinCallback(authResult) {
+            if( authResult ) {
+              if (authResult['access_token']) {
+                // Successfully authorized
+                // Store the returned token.
+                gapi.auth.setToken( authResult );
+                // Hide the sign-in button now that the user is authorized, for example:
+                document.getElementById('signinButton').setAttribute('style', 'display: none');
+                getPlusName();
+                // console.log( authResult );
+              } else if (authResult['error']) {
+                // There was an error.
+                // Possible error codes:
+                //   "access_denied" - User denied access to your app
+                //   "immediate_failed" - Could not automatially log in the user
+                // console.log('There was an error: ' + authResult['error']);
+              }
+            }
+          }
+					function getPlusName() {
+            gapi.client.load( 'plus', 'v1', function() {
+              var request = gapi.client.plus.people.get({'userId': 'me'});
+              request.execute( getNameCallback );
+            });
+          }
+          function getName() {
+            gapi.client.load( 'oauth2', 'v2', function() {
+              var request = gapi.client.oauth2.userinfo.get();
+              request.execute( getNameCallback );
+						});
+					}
+					function getNameCallback( response ) {
+							var element = document.getElementById( 'username' );
+							var name = '';
+							console.log( response );
+							if( response[ 'displayName']) {
+								name = response[ 'displayName' ];
+							}
+							element.innerHTML = name;
+              document.getElementById('username').setAttribute('style', 'display: inherit');
+              document.getElementById('signoutButton').setAttribute('style', 'display: inherit');
+						}
+          function revokeAccess( access_token ) {
+            var revoke_url = 'https://accounts.google.com/o/oauth2/revoke?token=' + access_token;
+            $.ajax({
+              type: 'GET',
+              url: revoke_url,
+              async: false,
+              contentType: "application/json",
+              dataType: 'jsonp',
+              success: function( nullResponse ) {
+                // Do something now that user is disconnected
+                // The response is always undefined.
+                document.getElementById('signinButton').setAttribute('style', 'display: inherit');
+                document.getElementById('username').setAttribute('style', 'display: none');
+                document.getElementById('signoutButton').setAttribute('style', 'display: none');
+              },
+              error: function( error ) {
+                // Handle the error
+                // console.log( error );
+                // You could point users to manually disconnect if unsuccessful
+                // https://plus.google.com/apps
+              }
+            });
+          }
             (function() {
                 var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
                 po.src = 'https://apis.google.com/js/client:plusone.js';
                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                $('#signoutButton').click( revokeAccess );
             })();
-        </script>
-        
-        <script type="text/javascript">
-            function signinCallback(authResult) {
-                if (authResult['access_token']) {
-                    // Successfully authorized
-                    // Hide the sign-in button now that the user is authorized, for example:
-                    document.getElementById('signinButton').setAttribute('style', 'display: none');
-                } else if (authResult['error']) {
-                    // There was an error.
-                    // Possible error codes:
-                    //   "access_denied" - User denied access to your app
-                    //   "immediate_failed" - Could not automatially log in the user
-                    // console.log('There was an error: ' + authResult['error']);
-                }
-            }
         </script>
     </body>
 </html>
