@@ -101,6 +101,7 @@
 							<button id="newDocument" class="btn btn-inverse btn-mini" type="button"><i class="icon-file icon-white"></i> new </button>
 							<button id="emailDocument" class="btn btn-inverse btn-mini" type="button"><i class="icon-envelope icon-white"></i> email </button>
 							<button id="printDocument" class="btn btn-inverse btn-mini" type="button"><i class="icon-print icon-white"></i> print </button>
+							<button id="saveDocument" class="btn btn-inverse btn-mini" type="button"><i class="icon-upload icon-white"></i> save </button>
 						</span>
 					</div>
 				</div>
@@ -121,7 +122,7 @@
 						<h3 id="aboutModalLabel">So what's this all about?</h3>
 					</div>
 					<div class="modal-body">
-						<p>Bookstrap is a very simple writing application I made as a front for experimenting with single click sign in features. I used <a href="http://initializr.com/">Initializr</a>'s Responsive template to get up and running quickly. This project also up on <a href="http://github.com/jlaswell/bookstrap/">Github</a> for anyone that wants to read through the source and use any snippets they find worthy.</p>
+						<p>Bookstrap is a very simple writing application I made as a front for experimenting with single click sign in features. I used <a href="http://initializr.com/">Initializr</a>'s Responsive template to get up and running quickly. This project is also up on <a href="http://github.com/jlaswell/bookstrap/">Github</a> for anyone that wants to read through the source and use any snippets they find worthy.</p>
 					</div>
 					<div class="modal-footer">
 						<button class="btn" data-dismiss="modal" aria-hidden="true">Alright</button>
@@ -139,6 +140,12 @@
 				s.parentNode.insertBefore(g,s)}(document,'script'));
 			</script>
 			<script type="text/javascript">
+				function getTitle() {
+					return $('#editableTitle').text();
+				}
+				function getContent() {
+					return $('#editiableBody').text();
+				}
 				function signinCallback(authResult) {
 					if( authResult ) {
 						if (authResult['access_token']) {
@@ -237,6 +244,16 @@
 				function printDocument() {
 					window.print();
 				}
+				function saveDocument() {
+					$.ajax({
+						type: 'POST',
+						url: 'exec/saveDocument.php',
+						data: { title: getTitle(), content: getContent() }
+					}).done( function( msg ) {
+						console.log( 'Document saved: ' + msg );
+						console.log( '  ' + getTitle() + ': ' + getContent().substr( 0, 24 ) + '...' );
+					});
+				}
 				(function() {
 					var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
 					po.src = 'https://apis.google.com/js/client:plusone.js';
@@ -245,6 +262,7 @@
 					$('#newDocument').click( clearDocument );
 					$('#emailDocument').click( sendMail );
 					$('#printDocument').click( printDocument )
+					$('#saveDocument').click( saveDocument );
 				})();
 			</script>
 		</body>
