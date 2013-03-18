@@ -1,0 +1,289 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"time",
+				"timeentry_activity_select"
+			],
+			[
+				"edit",
+				"editiableBody"
+			],
+			[
+				"ed",
+				"editableTitle"
+			],
+			[
+				"save",
+				"saveDocument"
+			],
+			[
+				"print",
+				"printDocument"
+			],
+			[
+				"prin",
+				"printDocument"
+			],
+			[
+				"getP",
+				"getPlusEmail"
+			],
+			[
+				"em",
+				"emailDocument"
+			],
+			[
+				"newD",
+				"newDocumentConfirm"
+			],
+			[
+				"clear",
+				"clearDocumentConfirm"
+			],
+			[
+				"new",
+				"newDocumentConfirmNo"
+			],
+			[
+				"clean",
+				"clearDocument"
+			],
+			[
+				"cl",
+				"click"
+			],
+			[
+				"edi",
+				"editiableBody"
+			],
+			[
+				"re",
+				"revokeAccess"
+			],
+			[
+				"si",
+				"signoutButton"
+			],
+			[
+				"revoke",
+				"revoke_url"
+			],
+			[
+				"access",
+				"access_token"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "bookstrap.html",
+			"settings":
+			{
+				"buffer_size": 11137,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/nathanlaswell/git/SlickFramework/application/views/user/actionpanel.blade.php",
+		"/Users/nathanlaswell/git/SlickFramework/application/views/slick_model/form.blade.php",
+		"/Volumes/jlaswell/www/js/bookstrap.js",
+		"/Volumes/jlaswell/www/bookstrap.html",
+		"/Users/nathanlaswell/git/vlsvn/branches/dev/AudiogramPanel.cs",
+		"/Users/nathanlaswell/git/vlsvn/branches/dev/Audiogram.cs",
+		"/Users/nathanlaswell/git/vlsvn/branches/dev/WelcomeScreen.cs",
+		"/Users/nathanlaswell/git/vlsvn/branches/dev/CaseHistoryForm.cs",
+		"/Users/nathanlaswell/git/vlsvn/slac/Virtual_Lab/Audiogram.cs",
+		"/Volumes/jlaswell/www/exec/saveDocument.php",
+		"/Users/nathanlaswell/git/bookstrap/bookstrap.html",
+		"/Volumes/jlaswell/www/bookstrap_dev.html",
+		"/Users/nathanlaswell/git/bookstrap/README.md",
+		"/Users/nathanlaswell/git/bookstrap/initializr/bookstrap.html",
+		"/Users/nathanlaswell/git/bookstrap/initializr/index.html",
+		"/Users/nathanlaswell/git/daytoday/less/daytoday-variables.less",
+		"/Users/nathanlaswell/git/daytoday/index.html",
+		"/Users/nathanlaswell/git/daytoday/css/sticky-footer.css",
+		"/Users/nathanlaswell/git/daytoday/less/navbar.less"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"",
+			"bookstrap.html",
+			"index.html",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"update_phases",
+			"$",
+			"return",
+			"Forms.Panel",
+			"Form",
+			"forms.form",
+			"evalaudio",
+			"audiogram_dev",
+			"Audiogram_Dev",
+			"Audiogram_",
+			"getPlusEmail",
+			"signin",
+			"console.",
+			"gapi",
+			"newDo",
+			"signout",
+			"signoutBu",
+			"bootstrap",
+			"brand",
+			".brand"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"getOAuthEmail",
+			"bookstrap"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "bookstrap.html",
+					"settings":
+					{
+						"buffer_size": 11137,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								260,
+								260
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"sticky",
+				"css/sticky-footer.css"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 230.0,
+	"status_bar_visible": true
+}
